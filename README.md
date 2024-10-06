@@ -16,6 +16,9 @@ curl -X POST http://localhost:3000/api/getBank/bankId_123,accountId_abc \
      -d '{"key1": "value1", "key2": "value2"}' -v
 ```
 
+## Set methodRouting with url: 
+`http://localhost:3000/api/getBank`
+
 ## Stop docker container
 - `npm run stop:docker`
 
