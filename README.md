@@ -1,8 +1,10 @@
 This project supply OpenBankProject connector adapter
 
 ## connect to RabbitMQ with RPC
-### steps
+## Initiate project
 - `npm install`
+
+### Start steps
 - `npm run start:docker`
 - `npm run start`
 
@@ -14,7 +16,8 @@ curl -X POST http://localhost:3000/api/getBank/bankId_123,accountId_abc \
      -d '{"key1": "value1", "key2": "value2"}' -v
 ```
 
-## You can stop docker container with `npm run stop:docker`
+## Stop docker container
+- `npm run stop:docker`
 
 ## Add new demo connector
 Add new function just like `packages/core/src/demoServer.js` routers object did, you can add new method name as key, response generator function as value.
