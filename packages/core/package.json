@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node src/demoServer.js",
+    "start": "nodemon src/demoServer.js",
     "test": "echo \"No test specified\" && exit 0"
   }
 }

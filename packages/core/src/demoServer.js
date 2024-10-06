@@ -10,6 +10,7 @@ const routers = {
         bankCountry: `Hello ${params.bankId} country`,
         accountName:   `Hello Account ${params.accountId}`,
         requestData: data,
+        processTime: new Date().toISOString(),
     }),
 }
 /**
@@ -22,7 +23,7 @@ async function responseGenerator (input) {
     const {method, params, data} = request;
     console.log("params:", params);
     console.log("data:", data);
-    const response = await routers[method]({params, data});
+    const response = await routers[method]?.({params, data}) ?? {'status': 'fail', 'reason': `method ${method} not be implemented in the server.`};
     return JSON.stringify(response);
 }
 
