@@ -1,4 +1,4 @@
-const { RpcClient, RpcServer } = require('rabbitmq');
+const { RpcServer } = require('rabbitmq');
 
 
 const routers = {
@@ -10,9 +10,13 @@ const routers = {
         bankCountry: `Hello ${params.bankId} country`,
         accountName:   `Hello Account ${params.accountId}`,
         requestData: data,
-    })
+    }),
 }
-
+/**
+ * 
+ * @param {string} input json format string, structure: {method: string, params?:{bankId:string, accountId:string}, data: any}
+ * @returns {string}
+ */
 async function responseGenerator (input) {
     const request = JSON.parse(input);
     const {method, params, data} = request;
@@ -22,6 +26,6 @@ async function responseGenerator (input) {
     return JSON.stringify(response);
 }
 
-// Example usage
+// Example usage (input: string)=>string
 const rpcServer = new RpcServer('rpc_queue', responseGenerator);
 rpcServer.start();

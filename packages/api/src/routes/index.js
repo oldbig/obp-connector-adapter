@@ -2,10 +2,6 @@ const express = require('express');
 const router = express.Router();
 const {RpcClient} = require('rabbitmq');
 
-// Example usage
-// const rpcServer = new RpcServer('rpc_queue');
-// rpcServer.start();
-
 const rpcClient = new RpcClient('rpc_queue');
 rpcClient.connect();
 
