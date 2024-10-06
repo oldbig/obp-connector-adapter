@@ -1,0 +1,24 @@
+{
+  "name": "obp-connector-adapter",
+  "version": "1.0.0",
+  "description": "This project is for adapter of rest api connector",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run start --prefix packages/core\" \"npm run start --prefix packages/api\"",
+    "start:docker": "npm run docker:build --prefix packages/rabbitmq && npm run docker:start --prefix packages/rabbitmq",
+    "stop:docker": "npm run docker:stop --prefix packages/rabbitmq",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Open Bank Project",
+  "license": "ISC",
+  "workspaces": [
+    "packages/core",
+    "packages/api",
+    "packages/rabbitmq"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "nodemon": "^3.1.7"
+  }
+}

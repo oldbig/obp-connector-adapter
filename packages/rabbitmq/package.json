@@ -1,0 +1,16 @@
+{
+  "name": "rabbitmq",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "docker:build": "docker build -t rabbitmq-service .",
+    "docker:start": "docker run -d --name rabbitmq-container -p 5672:5672 -p 15672:15672 rabbitmq-service",
+    "docker:stop": "docker stop rabbitmq-container && docker rm rabbitmq-container",
+    "docker:compose": "docker-compose up -d",
+    "docker:compose:down": "docker-compose down"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.4",
+    "uuid": "^10.0.0"
+  }
+}
